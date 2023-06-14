@@ -9,6 +9,8 @@ import productRoutes from "./routes/productRoutes.js"
 import bodyparser from "body-parser";
 import cors from "cors";
 import path from "path"
+import {fileURLToPath} from 'url';
+
 const app = express();
 
 //config env
@@ -16,6 +18,10 @@ dotenv.config();
 
 //config databse
 connectDB();
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //middlewares
 app.use(express.json());
@@ -46,3 +52,4 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`app is running at ${PORT}`.yellow);
 });
+
