@@ -10,4 +10,4 @@ console.log(`Error in db ${error}`.bgRed.white)
 }
 }
 
-export default connectDB
+module.exports = connectDB;
