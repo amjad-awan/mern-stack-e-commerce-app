@@ -1,5 +1,6 @@
-import jwt from "jsonwebtoken";
-import userModel from "../models/userModel.js";
+const jwt = require("jsonwebtoken");
+const userModel = require("../models/userModel.js");
+
 
 //Protected routes with jwt
 
