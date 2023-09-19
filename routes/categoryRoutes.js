@@ -1,12 +1,14 @@
-import express from "express";
-import { isAdmin, requiresSignIn } from "../middlewares/authMiddleware.js";
-import {
+const express =require("express");
+const { isAdmin, requiresSignIn } = require("../middlewares/authMiddleware.js");
+
+const {
   createCategoryController,
   deleteSingleCategoriesController,
   getCategoriesController,
   singleCategoriesController,
-  updateCategoryController,
-} from "../controllers/categoryController.js";
+  updateCategoryController
+} = require("../controllers/categoryController.js");
+
 
 const router = express.Router();
 
@@ -32,4 +34,4 @@ router.get("/single-category/:cid", singleCategoriesController);
 // detelet single category
 router.delete("/detele-single-category/:id",requiresSignIn, isAdmin, deleteSingleCategoriesController);
 
-export default router;
+module.exports = router;

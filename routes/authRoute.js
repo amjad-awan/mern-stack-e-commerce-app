@@ -1,5 +1,5 @@
-import express from "express";
-import {
+const express =require("express");
+const {
   registerController,
   loginController,
   testController,
@@ -7,9 +7,11 @@ import {
   userProfileController,
   getOrdesrController,
   getALlOrdersController,
-  orderStatusController,
-} from "../controllers/authController.js";
-import { isAdmin, requiresSignIn } from "../middlewares/authMiddleware.js";
+  orderStatusController
+} = require("../controllers/authController.js");
+
+const { isAdmin, requiresSignIn } = require("../middlewares/authMiddleware.js");
+
 
 //router object
 const router = express.Router();
@@ -60,4 +62,4 @@ router.put(
   orderStatusController
 );
 
-export default router;
+module.exports = router;
