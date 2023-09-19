@@ -8,21 +8,21 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import bodyparser from "body-parser";
 import cors from "cors";
-import path from "path";
-// import { fileURLToPath } from "url";
+import { dirname } from 'path';
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 
-//config env
+// Config env
 dotenv.config();
 
-//config databse
+// Config database
 connectDB();
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-
-//middlewares
+// Middlewares
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
@@ -31,20 +31,19 @@ app.use(bodyparser.json());
 app.use(express.static(path.join(__dirname, "./client/build")));
 const PORT = process.env.PORT || 5000;
 
-//routes
+// Routes
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
-// rest api
-
+// REST API
 app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 app.get("/", (req, res) => {
   res.send({
-    message:"this is e-commerce website"
+    message: "this is e-commerce website"
   });
 });
 
