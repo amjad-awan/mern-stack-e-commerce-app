@@ -1,7 +1,8 @@
-import { comparePassword, hashPassword } from "../helpers/authHelper.js";
-import { jwtToken } from "../helpers/jwt.js";
-import orderModel from "../models/orderModel.js";
-import userModel from "../models/userModel.js";
+const { comparePassword, hashPassword } = require("../helpers/authHelper.js");
+const { jwtToken } = require("../helpers/jwt.js");
+const orderModel = require("../models/orderModel.js");
+const userModel = require("../models/userModel.js");
+
 
 // User Registration
 export const registerController = async (req, res) => {

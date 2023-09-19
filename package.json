@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "node server.js",
-    "server": "server.js",
+    "server": "nodemon server.js",
     "client": "npm start --prefix ./client",
     "dev": "concurrently \"npm start\" \"npm run client\""
   },

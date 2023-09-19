@@ -1,13 +1,12 @@
-import productModel from "../models/productModal.js";
+const productModel = require("../models/productModal.js");
+const fs = require("fs");
+const mongoose = require("mongoose");
+const slugify = require("slugify");
+const categoryModal = require("../models/categoryModal.js");
+const orderModel = require("../models/orderModel.js");
+const braintree = require("braintree");
+const dotenv = require("dotenv");
 
-import fs from "fs";
-import mongoose from "mongoose";
-import slugify from "slugify";
-import categoryModal from "../models/categoryModal.js";
-import orderModel from "../models/orderModel.js";
-import braintree from "braintree";
-
-import dotenv from "dotenv"
 dotenv.config()
 // paymeny gatewway
 var gateway = new braintree.BraintreeGateway({

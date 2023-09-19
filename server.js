@@ -1,19 +1,20 @@
-import express from "express";
-import colors from "colors";
-import dotenv from "dotenv";
-import morgan from "morgan";
-import connectDB from "./config/db.js";
-import authRoute from "./routes/authRoute.js";
-import categoryRoutes from "./routes/categoryRoutes.js";
-import productRoutes from "./routes/productRoutes.js";
-import bodyparser from "body-parser";
-import cors from "cors";
-import path from "path";
+const express =require("express");
+const colors =require("colors") ;
+const dotenv= require("dotenv") ;
+const morgan =require("morgan") ;
+const connectDB =require("./config/db.js") ;
+const authRoute =require("./routes/authRoute.js") ;
+const categoryRoutes= require("./routes/categoryRoutes.js") ;
+const productRoutes =require( "./routes/productRoutes.js");
+const bodyparser =require("body-parser");
+const cors= require("cors") ;
+const path= require("path") ;
 // import { fileURLToPath } from "url";
 
 const app = express();
 
 //config env
+
 dotenv.config();
 
 //config databse
@@ -36,13 +37,13 @@ app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
 
-// statis files 
+
+// static files 
 app.use(express.static(path.join(__dirname, "./client/build")));
 
 // rest api
-
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname,"./client/build/index.html"));
 });
 
 app.get("/", (req, res) => {

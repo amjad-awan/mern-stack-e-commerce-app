@@ -1,5 +1,4 @@
-import Jwt from "jsonwebtoken";
-
+const Jwt=require("jsonwebtoken")
 export const jwtToken = (userId) => {
   // Assuming you have generated a JWT token
 console.log("userId ===", userId)

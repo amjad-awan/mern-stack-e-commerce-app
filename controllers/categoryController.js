@@ -1,5 +1,6 @@
-import slugify from "slugify";
-import categoryModal from "../models/categoryModal.js";
+const slugify = require("slugify");
+const categoryModal = require("../models/categoryModal.js");
+
 
 export const createCategoryController = async (req, res) => {
   try {
