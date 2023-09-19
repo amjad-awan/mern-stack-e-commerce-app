@@ -28,7 +28,6 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json())
-app.use(express.static(path.join(__dirname,"./client/build")));
 const PORT = process.env.PORT||5000;
 
 // Routes
@@ -36,6 +35,9 @@ app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
+
+//static paths
+app.use(express.static(path.join(__dirname,"./client/build")));
 // REST API
 app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname,"./client/build/index.html"));
