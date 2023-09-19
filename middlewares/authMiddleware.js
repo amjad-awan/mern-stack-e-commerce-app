@@ -6,11 +6,10 @@ import userModel from "../models/userModel.js";
 export const requiresSignIn = async (req, res, next) => {
   try {
     const token = req.headers.authorization;
-    console.log("token ====== ", token);
     if (!token) {
       throw new Error("Authentication failed!");
     }
-    const decode = jwt.verify(token, process.env.JWT_SECRET);
+    const decode = jwt.verify(token,"QOID@NCNDF");
     req.user = decode;
     next();
   } catch (error) {
