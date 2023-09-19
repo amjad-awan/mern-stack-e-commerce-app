@@ -8,11 +8,9 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import bodyparser from "body-parser";
 import cors from "cors";
-import { dirname } from 'path';
-import { fileURLToPath } from "url";
+
 import path from 'path';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+
 
 const app = express();
 
@@ -39,7 +37,7 @@ app.use("/api/v1/product", productRoutes);
 //static paths
 app.use(express.static(path.join(__dirname,"./client/build")));
 // REST API
-app.use("*", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname,"./client/build/index.html"));
 });
 
