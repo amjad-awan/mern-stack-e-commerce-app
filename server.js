@@ -10,7 +10,7 @@ import bodyparser from "body-parser";
 import cors from "cors";
 import { dirname } from 'path';
 import { fileURLToPath } from "url";
-
+import path from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -27,9 +27,9 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
 app.use(bodyparser.urlencoded({ extended: false }));
-app.use(bodyparser.json());
-app.use(express.static(path.join(__dirname, "./client/build")));
-const PORT = process.env.PORT || 5000;
+app.use(bodyparser.json())
+app.use(express.static(path.join(__dirname,"./client/build")));
+const PORT = process.env.PORT||5000;
 
 // Routes
 app.use("/api/v1/auth", authRoute);
@@ -38,7 +38,7 @@ app.use("/api/v1/product", productRoutes);
 
 // REST API
 app.use("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname,"./client/build/index.html"));
 });
 
 app.get("/", (req, res) => {
