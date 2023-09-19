@@ -67,7 +67,7 @@ exports.updateCategoryController = async (req, res) => {
 
 exports.getCategoriesController = async (req, res) => {
   try {
-    const categories = await categoryModal.find({});
+    const category = await categoryModal.find({});
 
 
     res.status(200).send({
