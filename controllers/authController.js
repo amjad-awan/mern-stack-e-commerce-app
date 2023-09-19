@@ -5,7 +5,7 @@ const userModel = require("../models/userModel.js");
 
 
 // User Registration
-export const registerController = async (req, res) => {
+exports.registerController = async (req, res) => {
   const { name, email, password, phone, address, answer, role } = req.body;
   try {
     //validation
@@ -77,7 +77,7 @@ export const registerController = async (req, res) => {
 };
 
 // User login
-export const loginController = async (req, res) => {
+exports.loginController = async (req, res) => {
   const { email, password } = req.body;
   try {
     //validation
@@ -127,12 +127,12 @@ export const loginController = async (req, res) => {
 };
 
 // test controller
-export const testController = async (req, res) => {
+exports.testController = async (req, res) => {
   res.status(200).send("projected route");
 };
 
 //forgorPasswordController
-export const forgorPasswordController = async (req, res) => {
+exports.forgorPasswordController = async (req, res) => {
   try {
     const { email, answer, newPassword } = req.body;
     if (!email) {
@@ -181,7 +181,7 @@ export const forgorPasswordController = async (req, res) => {
 
 // update profile controller
 
-export const userProfileController = async (req, res) => {
+exports.userProfileController = async (req, res) => {
   try {
     const { name, phone, password, address } = req?.body;
     console.log("req?.body === ", req?.body);
@@ -221,7 +221,7 @@ export const userProfileController = async (req, res) => {
 };
 
 // orders
-export const getOrdesrController = async (req, res) => {
+exports.getOrdesrController = async (req, res) => {
   try {
     const orders = await orderModel
       .find({ buyer: req.user._id })
@@ -238,7 +238,7 @@ export const getOrdesrController = async (req, res) => {
 };
 
 // get all orders
-export const getALlOrdersController = async (req, res) => {
+exports.getALlOrdersController = async (req, res) => {
   try {
     const orders = await orderModel
       .find({})
@@ -259,7 +259,7 @@ export const getALlOrdersController = async (req, res) => {
 
 
 //order status
-export const orderStatusController = async (req, res) => {
+exports.orderStatusController = async (req, res) => {
   try {
     const { orderId } = req.params;
     const { status } = req.body;

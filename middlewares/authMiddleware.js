@@ -3,7 +3,7 @@ import userModel from "../models/userModel.js";
 
 //Protected routes with jwt
 
-export const requiresSignIn = async (req, res, next) => {
+exports.requiresSignIn = async (req, res, next) => {
   try {
     const token = req.headers.authorization;
     if (!token) {
@@ -18,7 +18,7 @@ export const requiresSignIn = async (req, res, next) => {
 };
 
 //admin acceess
-export const isAdmin = async (req, res, next) => {
+exports.isAdmin = async (req, res, next) => {
   try {
     const user = await userModel.findById(req.user._id);
     if (user?.role !== 1) {

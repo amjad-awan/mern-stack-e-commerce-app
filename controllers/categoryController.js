@@ -2,7 +2,7 @@ const slugify = require("slugify");
 const categoryModal = require("../models/categoryModal.js");
 
 
-export const createCategoryController = async (req, res) => {
+exports.createCategoryController = async (req, res) => {
   try {
     const { name } = req.body;
     if (!name) {
@@ -38,7 +38,7 @@ export const createCategoryController = async (req, res) => {
   }
 };
 
-export const updateCategoryController = async (req, res) => {
+exports.updateCategoryController = async (req, res) => {
   try {
     const { name } = req.body;
     const { id } = req.params;
@@ -65,7 +65,7 @@ export const updateCategoryController = async (req, res) => {
 
 // get all categories comtroller
 
-export const getCategoriesController = async (req, res) => {
+exports.getCategoriesController = async (req, res) => {
   try {
     const categories = await categoryModal.find({});
 
@@ -84,7 +84,7 @@ export const getCategoriesController = async (req, res) => {
   }
 };
 
-export const singleCategoriesController = async (req, res) => {
+exports.singleCategoriesController = async (req, res) => {
   try {
     const { cid } = req.params;
     console.log("cid", cid);
@@ -105,7 +105,7 @@ export const singleCategoriesController = async (req, res) => {
 };
 
 // delete single category route
-export const deleteSingleCategoriesController = async (req, res) => {
+exports.deleteSingleCategoriesController = async (req, res) => {
   try {
     const { id } = req.params;
     await categoryModal.findByIdAndDelete(id)
