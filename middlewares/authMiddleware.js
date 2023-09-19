@@ -18,7 +18,8 @@ exports.requiresSignIn = async (req, res, next) => {
   }
 };
 
-//admin acceess
+
+//admin access
 exports.isAdmin = async (req, res, next) => {
   try {
     const user = await userModel.findById(req.user._id);
