@@ -73,7 +73,7 @@ exports.getCategoriesController = async (req, res) => {
     res.status(200).send({
       success: true,
       message: "All Categories List",
-      categories,
+      category,
     });
   } catch (error) {
     res.status(500).send({
