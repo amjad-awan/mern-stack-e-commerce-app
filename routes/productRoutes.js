@@ -37,7 +37,7 @@ router.post(
 );
 
 router.get("/get-products", getProductController);
-router.get("/get-single-product/:pid", getSingleProductController);
+router.get("/get-product/:pid", getSingleProductController);
 
 // photo route
 router.get("/product-photo/:pid", productPhotoController);
